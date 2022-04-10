@@ -33,6 +33,7 @@
 .input-group input {
     width: 415px;
     height: 55px;
+    padding-left: 5px;
     border: 1px solid #95A0A7;
     box-sizing: border-box;
     border-radius: 8px;
