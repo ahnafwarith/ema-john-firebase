@@ -49,6 +49,9 @@ const Login = () => {
                     </div>
                     <input className='form-submit' type="submit" value="Login" />
                     <p style={{ color: 'red' }}>{error?.message}</p>
+                    {
+                        loading && <p>Loading ...</p>
+                    }
                 </form>
                 <p>
                     New to Ema-John? <Link className='form-link' to='/register'>Create An Account</Link>
