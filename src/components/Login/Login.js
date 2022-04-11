@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Login.css'
 
@@ -9,6 +9,10 @@ const Login = () => {
     const [password, setPassword] = useState();
 
     const navigate = useNavigate();
+
+    const location = useLocation();
+    /* From the requireAuth component a state was used to store where the component we are coming from is, here from is storing that if the value is found, otherwise redirect to homepage */
+    const from = location.state?.from?.pathname || '/'
 
     const handleEmailInput = (e) => {
         setEmail(e.target.value)
@@ -31,7 +35,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
-        /* navigate('/') */
+        navigate(from)
     }
 
     return (
