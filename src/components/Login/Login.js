@@ -12,7 +12,7 @@ const Login = () => {
 
     const location = useLocation();
     /* From the requireAuth component a state was used to store where the component we are coming from is, here from is storing that if the value is found, otherwise redirect to homepage */
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
 
     const handleEmailInput = (e) => {
         setEmail(e.target.value)
@@ -35,7 +35,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
-        navigate(from)
+        navigate(from, { replace: true });
     }
 
     return (
