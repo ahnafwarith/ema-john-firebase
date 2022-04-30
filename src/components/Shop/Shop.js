@@ -22,10 +22,10 @@ const Shop = () => {
         fetch('http://localhost:5000/productCount')
             .then(res => res.json())
             .then(data => {
-                const pages = Math.ceil(data.count / 10)
+                const pages = Math.ceil(data.count / size)
                 setPageCount(pages)
             })
-    }, []);
+    }, [page, size]);
 
     useEffect(() => {
         const storedCart = getStoredCart();
@@ -56,6 +56,7 @@ const Shop = () => {
         }
 
         setCart(newCart);
+        console.log(newCart)
         addToDb(selectedProduct._id);
     }
 

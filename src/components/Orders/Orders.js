@@ -10,6 +10,7 @@ import './Orders.css';
 const Orders = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart();
+    console.log(cart)
     const navigate = useNavigate();
     const handleRemoveProduct = product => {
         const rest = cart.filter(pd => pd._id !== product._id);

@@ -7,7 +7,8 @@ const useCart = () => {
     useEffect(() => {
         const storedCart = getStoredCart();
         const savedCart = [];
-        const keys = Object.keys(storedCart)
+        const keys = Object.keys(storedCart);
+
         fetch('http://localhost:5000/productByKeys', {
             method: 'POST',
             headers: {
@@ -27,6 +28,7 @@ const useCart = () => {
                 }
                 setCart(savedCart);
             })
+
     }, []);
 
     return [cart, setCart];
